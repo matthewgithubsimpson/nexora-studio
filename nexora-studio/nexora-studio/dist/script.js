@@ -80,3 +80,74 @@ if (contactForm) {
     }
   });
 }
+// Ventanas de detalles de los proyectos de Nexora Studio
+const projectModal = document.getElementById("projectModal");
+const closeProjectModal = document.getElementById("closeProjectModal");
+const modalTitle = document.getElementById("modalTitle");
+const modalDescription = document.getElementById("modalDescription");
+const modalServices = document.getElementById("modalServices");
+
+const projectDetails = [
+  {
+    title: "Cafetería local",
+    description:
+      "Una identidad visual cálida y cercana, inspirada en el aroma del café y en los pequeños momentos del día.",
+    services: "Concepto creativo · Branding · Diseño web"
+  },
+  {
+    title: "Estudio de bienestar",
+    description:
+      "Una propuesta visual limpia y moderna para transmitir equilibrio, energía y bienestar.",
+    services: "Concepto creativo · Identidad visual · Diseño web"
+  },
+  {
+    title: "Estudio de interiores",
+    description:
+      "Una estética elegante y minimalista que destaca los espacios, los materiales y la personalidad de cada ambiente.",
+    services: "Concepto creativo · Dirección visual · Diseño web"
+  }
+];
+
+const projectCards = document.querySelectorAll(".project-card");
+
+function openProjectModal(index) {
+  const project = projectDetails[index];
+
+  if (!project || !projectModal) return;
+
+  modalTitle.textContent = project.title;
+  modalDescription.textContent = project.description;
+  modalServices.textContent = project.services;
+
+  projectModal.classList.add("is-open");
+  projectModal.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+
+  closeProjectModal?.focus();
+}
+
+function closeProjectDetails() {
+  if (!projectModal) return;
+
+  projectModal.classList.remove("is-open");
+  projectModal.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+}
+
+projectCards.forEach((card, index) => {
+  card.addEventListener("click", () => openProjectModal(index));
+});
+
+closeProjectModal?.addEventListener("click", closeProjectDetails);
+
+projectModal?.addEventListener("click", (event) => {
+  if (event.target === projectModal) {
+    closeProjectDetails();
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeProjectDetails();
+  }
+});
