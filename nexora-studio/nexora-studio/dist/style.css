@@ -807,3 +807,72 @@ a {
     transition-duration: .01ms !important;
   }
 }
+/* Ventana de detalles de los proyectos */
+.project-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(5, 10, 25, 0.85);
+  backdrop-filter: blur(8px);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.project-modal.is-open {
+  display: flex;
+}
+
+.project-modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 550px;
+  padding: 40px;
+  border: 1px solid rgba(100, 150, 255, 0.35);
+  border-radius: 20px;
+  background: #101a30;
+  color: #fff;
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.4);
+}
+
+.project-modal-label {
+  color: #8baaff;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.project-modal-content h2 {
+  margin: 20px 0 12px;
+  font-size: 32px;
+}
+
+.project-modal-content p {
+  line-height: 1.7;
+  color: #c5cde0;
+}
+
+.project-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  border: 0;
+  background: transparent;
+  color: white;
+  font-size: 32px;
+  cursor: pointer;
+}
+
+.project-card {
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .project-modal-content {
+    padding: 30px 24px;
+  }
+
+  .project-modal-content h2 {
+    font-size: 26px;
+  }
+}
