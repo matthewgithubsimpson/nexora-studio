@@ -87,7 +87,7 @@ const modalTitle = document.getElementById("modalTitle");
 const modalDescription = document.getElementById("modalDescription");
 const modalServices = document.getElementById("modalServices");
 
-const projectDetails = [
+
 const projectDetails = [
   {
     title: "Cafetería local",
