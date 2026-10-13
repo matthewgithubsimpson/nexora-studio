@@ -113,7 +113,7 @@ const projectDetails = [
 ];
 
 const projectCards = document.querySelectorAll(".project-card");
-
+console.log("Tarjetas encontradas:", projectCards.length);
 function openProjectModal(index) {
   const project = projectDetails[index];
 
