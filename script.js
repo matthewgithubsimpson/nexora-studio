@@ -123,20 +123,30 @@ function openProjectModal(index) {
 modalDescription.textContent = project.description;
 modalServices.textContent = project.services;
 
-const modalImage = document.getElementById("modalImage");
+const modalGallery = document.getElementById("modalGallery");
 
-if (modalImage) {
-  modalImage.onerror = function () {
-    console.error("No se pudo cargar la imagen:", project.image);
-  };
+if (modalGallery) {
+  modalGallery.replaceChildren();
 
-  modalImage.onload = function () {
-    console.log("Imagen cargada correctamente:", project.image);
-  };
+  const images = project.gallery || [project.image];
 
-  modalImage.src = project.image;
-  modalImage.alt = project.alt;
-  modalImage.style.display = "block";
+  images.forEach((imageUrl, imageIndex) => {
+    const img = document.createElement("img");
+
+    img.className = "project-modal-image";
+    img.src = imageUrl;
+    img.alt = imageIndex === 0
+      ? project.alt
+      : `${project.title} — imagen ${imageIndex + 1}`;
+    img.loading = "lazy";
+
+    img.onerror = function () {
+      console.error("No se pudo cargar la imagen:", imageUrl);
+      img.remove();
+    };
+
+    modalGallery.appendChild(img);
+  });
 }
 
   projectModal.classList.add("is-open");
