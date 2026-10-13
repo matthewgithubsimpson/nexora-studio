@@ -124,8 +124,12 @@ modalDescription.textContent = project.description;
 modalServices.textContent = project.services;
 
 const modalImage = document.getElementById("modalImage");
-modalImage.src = project.image;
-modalImage.alt = project.alt;
+
+if (modalImage) {
+  modalImage.src = project.image;
+  modalImage.alt = project.alt;
+  modalImage.style.display = "block";
+}
 
   projectModal.classList.add("is-open");
   projectModal.setAttribute("aria-hidden", "false");
