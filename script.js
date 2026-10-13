@@ -88,23 +88,27 @@ const modalDescription = document.getElementById("modalDescription");
 const modalServices = document.getElementById("modalServices");
 
 const projectDetails = [
+const projectDetails = [
   {
     title: "Cafetería local",
-    description:
-      "Una identidad visual cálida y cercana, inspirada en el aroma del café y en los pequeños momentos del día.",
-    services: "Concepto creativo · Branding · Diseño web"
+    description: "Una identidad visual cálida y cercana, inspirada en el aroma del café y en los pequeños momentos del día.",
+    services: "Concepto creativo · Branding · Diseño web",
+    image: "https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1000&q=80",
+    alt: "Interior acogedor de una cafetería"
   },
   {
     title: "Estudio de bienestar",
-    description:
-      "Una propuesta visual limpia y moderna para transmitir equilibrio, energía y bienestar.",
-    services: "Concepto creativo · Identidad visual · Diseño web"
+    description: "Una propuesta visual limpia y moderna para transmitir equilibrio, energía y bienestar.",
+    services: "Concepto creativo · Identidad visual · Diseño web",
+    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1000&q=80",
+    alt: "Espacio de bienestar y yoga"
   },
   {
     title: "Estudio de interiores",
-    description:
-      "Una estética elegante y minimalista que destaca los espacios, los materiales y la personalidad de cada ambiente.",
-    services: "Concepto creativo · Dirección visual · Diseño web"
+    description: "Una estética elegante y minimalista que destaca los espacios, los materiales y la personalidad de cada ambiente.",
+    services: "Concepto creativo · Dirección visual · Diseño web",
+    image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=80",
+    alt: "Interior de una vivienda de diseño contemporáneo"
   }
 ];
 
@@ -115,9 +119,13 @@ function openProjectModal(index) {
 
   if (!project || !projectModal) return;
 
-  modalTitle.textContent = project.title;
-  modalDescription.textContent = project.description;
-  modalServices.textContent = project.services;
+ modalTitle.textContent = project.title;
+modalDescription.textContent = project.description;
+modalServices.textContent = project.services;
+
+const modalImage = document.getElementById("modalImage");
+modalImage.src = project.image;
+modalImage.alt = project.alt;
 
   projectModal.classList.add("is-open");
   projectModal.setAttribute("aria-hidden", "false");
