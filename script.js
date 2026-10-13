@@ -93,14 +93,14 @@ const projectDetails = [
     title: "Cafetería local",
     description: "Una identidad visual cálida y cercana, inspirada en el aroma del café y en los pequeños momentos del día.",
     services: "Concepto creativo · Branding · Diseño web",
-    image: image: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1000&q=80",
+    image: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1000&q=80",
     alt: "Interior acogedor de una cafetería"
   },
   {
     title: "Estudio de bienestar",
     description: "Una propuesta visual limpia y moderna para transmitir equilibrio, energía y bienestar.",
     services: "Concepto creativo · Identidad visual · Diseño web",
-    image: image: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=1000&q=80",
+    image: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=1000&q=80",
     alt: "Espacio de bienestar y yoga"
   },
   {
@@ -126,6 +126,14 @@ modalServices.textContent = project.services;
 const modalImage = document.getElementById("modalImage");
 
 if (modalImage) {
+  modalImage.onerror = function () {
+    console.error("No se pudo cargar la imagen:", project.image);
+  };
+
+  modalImage.onload = function () {
+    console.log("Imagen cargada correctamente:", project.image);
+  };
+
   modalImage.src = project.image;
   modalImage.alt = project.alt;
   modalImage.style.display = "block";
