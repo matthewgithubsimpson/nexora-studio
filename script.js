@@ -89,12 +89,18 @@ const modalServices = document.getElementById("modalServices");
 
 
 const projectDetails = [
-  {
+    {
     title: "Cafetería local",
     description: "Una identidad visual cálida y cercana, inspirada en el aroma del café y en los pequeños momentos del día.",
     services: "Concepto creativo · Branding · Diseño web",
     image: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1000&q=80",
-    alt: "Interior acogedor de una cafetería"
+    alt: "Interior acogedor de una cafetería",
+    gallery: [
+      "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1000&q=80"
+    ]
   },
   {
     title: "Estudio de bienestar",
